@@ -9,7 +9,7 @@ export const Comment = ({
   replies,
 }) => {
   return (
-    <p>
+    <div>
       <div className="d-flex gap-2 my-2">
         <img
           src={comments[number].userImagePath}
@@ -37,6 +37,6 @@ export const Comment = ({
         </div>
       </div>
       {/* map-loop render Reply component here */}
-    </p>
+    </div>
   );
 };
