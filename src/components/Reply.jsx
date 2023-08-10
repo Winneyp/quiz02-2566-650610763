@@ -11,7 +11,7 @@ export const Reply = ({
   return (
     <div className="d-flex gap-2 my-2 ps-5">
       <img
-        src={comments.userImagePath}
+        src="/profileImages/puppy.jpg"
         width="48"
         height="48"
         className="rounded-circle"
