@@ -1,5 +1,9 @@
 "use client";
 
+import { Comment } from "@/components/Comment";
+import { Reply } from "@/components/Reply";
+import { comments } from "@/libs/comments";
+
 export default function HomePage() {
   return (
     <div
@@ -15,14 +19,14 @@ export default function HomePage() {
         <div className="vstack gap-3">
           <div className="d-flex align-items-center gap-3">
             <img
-              src="/profileImages/handsome.jpg"
+              src="/profileImages/6025 1-1.jpg"
               width="48"
               height="48"
               className="rounded-circle"
               style={{ objectFit: "cover" }}
             />
             <span className="fw-semibold fs-5 text-white">
-              Chayanin Suatap 650610560
+              ทยากร อาวรัตนกุล 650610763
             </span>
           </div>
 
@@ -38,7 +42,7 @@ export default function HomePage() {
         </div>
 
         {/* Comment Example */}
-        <div className="d-flex gap-2 my-2">
+        {/* <div className="d-flex gap-2 my-2">
           <img
             src="/profileImages/lisa.jpg"
             width="48"
@@ -62,7 +66,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Reply Example */}
+        {/* Reply Example 
         <div className="d-flex gap-2 my-2 ps-5">
           <img
             src="/profileImages/puppy.jpg"
@@ -85,9 +89,33 @@ export default function HomePage() {
               <span style={{ color: "#B0B3B8" }}>2 คน</span>
             </div>
           </div>
-        </div>
+        </div> 
+        */}
 
         {/* map-loop render Comment component here */}
+        <div className="d-flex gap-2 my-2">
+          {comments.map((com, i) => (
+            <Comment
+              userImagePath={com.userImagePath}
+              username={com.username}
+              commentText={com.commentText}
+              likeNum={com.likeNum}
+              number={i}
+            />
+          ))}
+        </div>
+
+        <div className="d-flex gap-2 my-2 ps-5">
+          {comments.map((rep, i) => (
+            <Reply
+              userImagePath={rep.userImagePath}
+              username={rep.username}
+              replyText={rep.commentText}
+              likeNum={rep.likeNum}
+              number={i}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
